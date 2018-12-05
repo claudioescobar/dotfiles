@@ -4,6 +4,10 @@
 # http://ohmyz.sh/
 #
 
+# IGNORE CRLF
+#export SHELLOPTS  
+#set -o igncr
+
 if [[ $- != *i* ]] || [ -z "$PS1" ]; then
   return 0
 fi

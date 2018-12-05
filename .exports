@@ -291,6 +291,9 @@ fi
 if [ -d "/usr/lib/jvm/oraclejdk8-64" ]; then
   export JAVA_HOME="/usr/lib/jvm/oraclejdk8-64"
 fi
+if [ -d "/opt/java/jdk-8u181" ]; then
+  export JAVA_HOME="/opt/java/jdk-8u181"
+fi
 if [ -n "$JAVA_HOME" ]; then
   export JDK_HOME=$JAVA_HOME
   export JRE_HOME=$JAVA_HOME
@@ -304,8 +307,19 @@ fi
 if [ -d "/usr/share/maven" ]; then
   export M2_HOME="/usr/share/maven"
 fi
+if [ -d ".sdkman/candidates/maven/3.6.0" ]; then
+  export M2_HOME=".sdkman/candidates/maven/3.6.0"
+fi
 if [ -n "$M2_HOME" ]; then
   export PATH="$M2_HOME/bin:$PATH"
+fi
+
+# lazy add ANT_HOME
+if [ -d ".sdkman/candidates/ant/1.10.1" ]; then
+  export ANT_HOME=".sdkman/candidates/ant/1.10.1"
+fi
+if [ -n "$ANT_HOME" ]; then
+  export PATH="$ANT_HOME/bin:$PATH"
 fi
 
 # lazy add ANDROID_SDK_ROOT
