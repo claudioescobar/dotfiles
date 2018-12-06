@@ -308,7 +308,7 @@ if [ -d "/usr/share/maven" ]; then
   export M2_HOME="/usr/share/maven"
 fi
 if [ -d ".sdkman/candidates/maven/3.6.0" ]; then
-  export M2_HOME=".sdkman/candidates/maven/3.6.0"
+  export M2_HOME="/home/$USER/.sdkman/candidates/maven/3.6.0"
 fi
 if [ -n "$M2_HOME" ]; then
   export PATH="$M2_HOME/bin:$PATH"
@@ -316,7 +316,7 @@ fi
 
 # lazy add ANT_HOME
 if [ -d ".sdkman/candidates/ant/1.10.1" ]; then
-  export ANT_HOME=".sdkman/candidates/ant/1.10.1"
+  export ANT_HOME="/home/$USER/.sdkman/candidates/ant/1.10.1"
 fi
 if [ -n "$ANT_HOME" ]; then
   export PATH="$ANT_HOME/bin:$PATH"
