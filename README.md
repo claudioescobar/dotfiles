@@ -16,10 +16,10 @@ cd ~ ; git clone https://github.com/voku/dotfiles.git; cd dotfiles
 ./firstInstallDebianBased.sh
 
 # only for Cygwin (Windows) - prerequisite packages for cygwin
-.\<cygwin-setup-file> --no-admin -q -P lynx
+.\<cygwin-setup-file> --no-admin -q -P lynx wget dos2unix
 
 # only for Cygwin (Windows) - see if some dot file is not changed
-~/dotfiles/find . -type f -name "*.*" -exec dos2unix {} \+; 
+~/dotfiles/find . -type f -name "**" -exec dos2unix {} \+; 
 
 # only for Cygwin (Windows)
 ./firstInstallCygwin.sh
