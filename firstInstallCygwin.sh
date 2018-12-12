@@ -87,6 +87,7 @@ apt-cyg install \
   perl \
   python \
   ruby \
+  jq \
   `# install python-pygments for json print` \
   python-pygments
 
