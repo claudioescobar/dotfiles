@@ -55,6 +55,7 @@ apt-cyg install \
   findutils  \
   colordiff \
   tree \
+  inetutils \
   `# disk usage viewer` \
   ncdu \
   rsync \
