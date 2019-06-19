@@ -308,7 +308,7 @@ if [ -d "/usr/share/maven" ]; then
   export M2_HOME="/usr/share/maven"
 fi
 if [ -d ".sdkman/candidates/maven/current" ]; then
-  export M2_HOME="/home/$USER/.sdkman/candidates/maven/currentn"
+  export M2_HOME="/home/$USER/.sdkman/candidates/maven/current"
 fi
 if [ -n "$M2_HOME" ]; then
   export PATH="$M2_HOME/bin:$PATH"
