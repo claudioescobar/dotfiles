@@ -73,7 +73,8 @@ sudo apt-get install code -y
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-echo "install JDK on opt/jdk before run this script"
+#java
+sdk install java 11.0.3.hs-adpt
 
 #maven
 sdk install maven 3.6.1

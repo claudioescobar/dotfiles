@@ -291,8 +291,8 @@ fi
 if [ -d "/usr/lib/jvm/oraclejdk8-64" ]; then
   export JAVA_HOME="/usr/lib/jvm/oraclejdk8-64"
 fi
-if [ -d "/opt/jdk" ]; then
-  export JAVA_HOME="/opt/jdk"
+if [ -d ".sdkman/candidates/java/current" ]; then
+  export JAVA_HOME="/home/$USER/.sdkman/candidates/java/current"
 fi
 if [ -n "$JAVA_HOME" ]; then
   export JDK_HOME=$JAVA_HOME
