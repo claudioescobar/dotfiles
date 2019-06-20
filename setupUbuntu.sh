@@ -46,15 +46,16 @@ sudo apt install ubuntu-restricted-extras -y
 #install extra codecs(netflix)
 sudo apt install libavcodec-extra -y
 
-#stacer system-monitoring
-wget -O ~/stacer.deb https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
-sudo gdebi ~/stacer.deb
-
 #DEB packager
 sudo apt install gdebi-core -y
 
 #install some commands
 sudo apt-get install curl -y
+
+#stacer system-monitoring
+wget -O ~/stacer.deb https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
+sudo dpkg -i ~/stacer.deb
+sudo apt-get install -f
 
 #MANUAL CONFIGS
 #enable drm on firefox settings for netflix watching
