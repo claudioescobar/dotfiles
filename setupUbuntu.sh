@@ -110,3 +110,17 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get install docker-ce -y
+
+#Give permissions to the current user - restart computer after that
+sudo usermod -aG docker escobardo
+
+#Docker machine - go to https://github.com/docker/machine/releases to get the newest releases
+curl -L https://github.com/docker/machine/releases/download/v0.16.1/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+    chmod +x /tmp/docker-machine &&
+    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+
+#Docker Compose - go to https://github.com/docker/compose/releases to get the newest releases
+curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+echo "RESTART THE COMPUTER ;)"
