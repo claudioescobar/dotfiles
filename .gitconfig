@@ -459,9 +459,10 @@
 
 [pager]
   color = true
-  diff = diff-highlight | less
-  log = diff-highlight | less
-  show = diff-highlight | less
+  # COMMENTED UNTIL FIX ZSH
+  #diff = diff-highlight | less
+  #log = diff-highlight | less
+  #show = diff-highlight | less
 
 [rebase]
   # Use --autosquash by default. It's not like one would write !fixup message by accident.
