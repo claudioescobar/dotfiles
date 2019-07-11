@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-CONFIG_DEFAULT_USER=""
-CONFIG_CHARSET_UTF8=true
-CONFIG_LANG="en_US"
+CONFIG_DEFAULT_USER="escobardo"
+CONFIG_ZSH_PLUGINS="(git zsh-completions zsh-syntax-highlighting)"
 CONFIG_ZSH_PLUGINS="(git)"
 CONFIG_ZSH_THEME="voku"
 CONFIG_BASH_THEME="voku"
+CONFIG_CHARSET_UTF8=true
+CONFIG_LANG="en_US"
 CONFIG_TERM_LOCAL="" # terms: screen byobu tmux
 CONFIG_TERM_SSH=""

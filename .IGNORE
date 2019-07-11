@@ -11,6 +11,7 @@ LICENSE*
 firstInstallDebianBased.sh
 firstInstallCygwin.sh
 android_sdk_install.sh
+setupUbuntu.sh
 
 .DS_Store
 .gitignore

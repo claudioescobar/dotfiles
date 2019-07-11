@@ -123,4 +123,10 @@ curl -L https://github.com/docker/machine/releases/download/v0.16.1/docker-machi
 curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
+#uncomment the code below to install java if you have admin permissions
+#yes | sdk install java 8.0.191-oracle
+
+#uncomment the code below to generate portable jdk(does not require admin permission)
+#wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html; oraclelicense=accept-securebackup-cookie;" "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe" -O /opt/java/jdk-8u191-windows-x64.exe
+
 echo "RESTART THE COMPUTER ;)"
