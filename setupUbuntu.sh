@@ -53,9 +53,9 @@ sudo apt install gdebi-core -y
 sudo apt-get install curl -y
 
 #stacer system-monitoring
-wget -O ~/stacer.deb https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
-sudo dpkg -i ~/stacer.deb
-sudo apt-get install -f
+sudo add-apt-repository ppa:oguzhaninan/stacer -y
+sudo apt-get update
+sudo apt-get install stacer -y
 
 #MANUAL CONFIGS
 #enable drm on firefox settings for netflix watching
@@ -84,10 +84,10 @@ sdk install maven 3.6.1
 sdk install ant 1.10.1
 
 #gradle
-#sdk install gradle
+sdk install gradle 5.5.1
 
 #groovy
-#sdk install groovy
+sdk install groovy 2.5.7
 
 #Intellij
 #wget -O /opt/jetbrains_toobox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.11.4269.tar.gz
@@ -122,6 +122,11 @@ curl -L https://github.com/docker/machine/releases/download/v0.16.1/docker-machi
 #Docker Compose - go to https://github.com/docker/compose/releases to get the newest releases
 curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
+
+#DBeaver
+wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+sudo apt-get update && sudo apt-get install dbeaver-ce
 
 #uncomment the code below to install java if you have admin permissions
 #yes | sdk install java 8.0.191-oracle
