@@ -127,7 +127,10 @@ chmod +x /usr/local/bin/docker-compose
 wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
 echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
 sudo apt-get update && sudo apt-get install dbeaver-ce
-
+echo "Go to /usr/share/dbeaver/dbeaver.ini and add(just before vmargs): "
+echo "-vm"
+echo "/home/userhome/.sdkman/candidates/java/current/bin"                                                                                                                                                               
+echo "-vmargs"
 #uncomment the code below to install java if you have admin permissions
 #yes | sdk install java 8.0.191-oracle
 
