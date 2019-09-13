@@ -50,12 +50,12 @@ sudo apt install libavcodec-extra -y
 sudo apt install gdebi-core -y
 
 #install some commands
-sudo apt-get install curl -y
+sudo apt install curl -y
 
 #stacer system-monitoring
 sudo add-apt-repository ppa:oguzhaninan/stacer -y
-sudo apt-get update
-sudo apt-get install stacer -y
+sudo apt update
+sudo apt install stacer -y
 
 #MANUAL CONFIGS
 #enable drm on firefox settings for netflix watching
@@ -67,70 +67,73 @@ sudo apt-get install stacer -y
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo apt-get update
-sudo apt-get install code -y
+sudo apt update
+sudo apt install code -y
 
 #SDKMAN
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #java
-sdk install java 11.0.3.hs-adpt
+sdk install java 11.0.4.hs-adpt
 
 #maven
-sdk install maven 3.6.1
+sdk install maven 3.6.2
 
 #ant
 sdk install ant 1.10.1
 
 #gradle
-sdk install gradle 5.5.1
+sdk install gradle 5.6.2
 
 #groovy
-sdk install groovy 2.5.7
-
-#Intellij
-#wget -O /opt/jetbrains_toobox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.11.4269.tar.gz
-#sudo tar xfz /opt/jetbrains_toobox.tar.gz 
-#sudo rm jetbrains_toobox.tar.gz
+sdk install groovy 2.5.8
 
 #Docker
-sudo apt-get remove docker docker-engine docker.io
-sudo apt-get update
-sudo apt-get install -y \
-    apt-transport-https -y \
-    ca-certificates -y \
-    curl -y \
-    software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update
-sudo apt-get install docker-ce -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 
-#Give permissions to the current user - restart computer after that
-sudo usermod -aG docker escobardo
+#Give permissions to the current user - restart computer after that!
+sudo usermod -aG docker $USER
 
 #Docker machine - go to https://github.com/docker/machine/releases to get the newest releases
-curl -L https://github.com/docker/machine/releases/download/v0.16.1/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
     chmod +x /tmp/docker-machine &&
     sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 
 #Docker Compose - go to https://github.com/docker/compose/releases to get the newest releases
-curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 #DBeaver
 wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
 echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-sudo apt-get update && sudo apt-get install dbeaver-ce
-echo "Go to /usr/share/dbeaver/dbeaver.ini and add(just before vmargs): "
+sudo apt update
+sudo apt install -y dbeaver-ce
+echo "If need jvm new version support go to /usr/share/dbeaver/dbeaver.ini and add(just before vmargs): "
 echo "-vm"
 echo "/home/userhome/.sdkman/candidates/java/current/bin"                                                                                                                                                               
 echo "-vmargs"
+
+#virtualbox 6.0
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib"
+sudo apt update
+sudo apt install -y virtualbox-6.0
+
+#kubernetes
+sudo apt update && sudo apt install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt update
+sudo apt install -y kubectl
+
+#minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+sudo install minikube /usr/local/bin
+
 #uncomment the code below to install java if you have admin permissions
 #yes | sdk install java 8.0.191-oracle
 
